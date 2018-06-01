@@ -1,5 +1,3 @@
-
-
 def Fibonacci(i):
     contador = 0
     serie = list()
