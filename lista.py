@@ -8,7 +8,7 @@ class Lista:
         #    self.contenido = contenido
         #    self.siguiente = siguiente
 
-        def setObjecto(self, contenido):
+        def setContenido(self, contenido):
             self.contenido = contenido
 
         def setSiguiente(self, siguiente):
@@ -20,32 +20,68 @@ class Lista:
         def getSiguiente(self):
             return self.siguiente
 
-    nodoInicial = Nodo()
+
+    nodoInicial = None
     longitud = 0
 
     def __init__(self):
         pass
 
-    def agregar(self, objeto):
-        if self.longitud == 0:
-            self.nodoInicial.setObjecto(objeto)
+    def agregar(self, contenido):
+        if self.nodoInicial == None:
+            self.nodoInicial = self.Nodo()
+
+            self.nodoInicial.setContenido(contenido)
+            self.nodoInicial.setSiguiente(None)
+        else:
+            nodoTemp = self.Nodo()
+            nodoTemp.setContenido(contenido)
+            nodoTemp.setSiguiente(None)
+
+            nodo = self.ultimoNodo()
+            nodo.setSiguiente(nodoTemp)
+            
+
+        self.longitud = self.longitud + 1
+            
+
+    def eliminar(self, indice):
         pass
 
-    def eliminarPorIndice(self, indice):
-        pass
+    def verContenido(self, indice):
+        i = 0
+        nodo = self.nodoInicial
+        while i != indice:
+            nodo = nodo.getSiguiente()
+            i = i + 1
+        
+        return nodo.getContenido()
 
-    def objeto(self, indice):
-        pass
+    def getLongitud(self):
+        return self.longitud
 
-    def logintud(self):
-        return self.logintud
+    def ultimoNodo(self):
+        nodo = self.nodoInicial
+
+        while nodo.getSiguiente() != None:
+            nodo = nodo.getSiguiente()
+        
+        return nodo
 
 
 def main():
-    lista = Lista()
-    lista.agregar("Hola ")
-    lista.agregar("Mundo!!!")
+    listaEjemplo = Lista()
+    listaEjemplo.agregar("Hola")
+    listaEjemplo.agregar("Mundo!!!")
+    listaEjemplo.agregar("Me")
+    listaEjemplo.agregar("gusta")
+    listaEjemplo.agregar("mucho")
+    listaEjemplo.agregar("la")
+    listaEjemplo.agregar("programacion")
 
-    print(lista.objeto(0) + lista.objeto(1))
+    for i in range(listaEjemplo.getLongitud()):
+        print("Elemento" + str(i) + ": " + str(listaEjemplo.verContenido(i)))
+
+    print("\nExisten " + str(listaEjemplo.getLongitud()) + " elementos en la lista")
 
 main()
