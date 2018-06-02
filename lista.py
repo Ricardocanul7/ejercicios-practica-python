@@ -46,7 +46,19 @@ class Lista:
             
 
     def eliminar(self, indice):
-        pass
+        i = 0
+        nodo = self.nodoInicial
+        while i != indice - 1:  # Asumiendo que los indices van de 0, 1, 2, etc...
+            nodo = nodo.getSiguiente()
+            i = i + 1
+            if(nodo == None):
+                return False
+        nodoEliminar = nodo.getSiguiente()
+        nodoSiguiente = nodoEliminar.getSiguiente()
+        nodo.setSiguiente(nodoSiguiente)
+        self.longitud = self.longitud - 1
+        
+        return True
 
     def verContenido(self, indice):
         i = 0
@@ -68,8 +80,9 @@ class Lista:
         
         return nodo
 
-
+# MAIN
 def main():
+    #Agregar
     listaEjemplo = Lista()
     listaEjemplo.agregar("Hola")
     listaEjemplo.agregar("Mundo!!!")
@@ -79,9 +92,27 @@ def main():
     listaEjemplo.agregar("la")
     listaEjemplo.agregar("programacion")
 
+    # verContenido
     for i in range(listaEjemplo.getLongitud()):
         print("Elemento" + str(i) + ": " + str(listaEjemplo.verContenido(i)))
 
+    # getLongitud
+    print("\nExisten " + str(listaEjemplo.getLongitud()) + " elementos en la lista\n")
+
+    # Eliminar
+    indice = 4
+    if listaEjemplo.eliminar(indice): # Elimina nodo en indice 4 "mucho"
+        print("Se ha eliminado nodo en indice " + str(indice))
+    else:
+        print("El nodo no se ha eliminado correctamente")
+    
+    print("\nMostrar elementos nuevamente: ")
+
+    # verContenido
+    for i in range(listaEjemplo.getLongitud()):
+        print("Elemento" + str(i) + ": " + str(listaEjemplo.verContenido(i)))
+
+    # getLongitud
     print("\nExisten " + str(listaEjemplo.getLongitud()) + " elementos en la lista")
 
 main()
