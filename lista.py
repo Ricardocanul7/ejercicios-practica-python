@@ -20,8 +20,6 @@ class Lista:
         def getSiguiente(self):
             return self.siguiente
         
-
-
     nodoInicial = None
     longitud = 0
 
