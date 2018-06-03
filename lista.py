@@ -4,10 +4,6 @@ class Lista:
         def __init__(self):
             pass
 
-        #def __init__(self, contenido, siguiente):
-        #    self.contenido = contenido
-        #    self.siguiente = siguiente
-
         def setContenido(self, contenido):
             self.contenido = contenido
 
@@ -39,10 +35,7 @@ class Lista:
 
             nodo = self.ultimoNodo()
             nodo.setSiguiente(nodoTemp)
-
-
         self.longitud = self.longitud + 1
-
 
     def eliminar(self, indice):
         i = 0
@@ -65,7 +58,6 @@ class Lista:
         while i != indice:
             nodo = nodo.getSiguiente()
             i = i + 1
-
         return nodo.getContenido()
 
     def getNodo(self, indice):
@@ -74,7 +66,6 @@ class Lista:
         while i != indice:
             nodo = nodo.getSiguiente()
             i = i + 1
-
         return nodo
 
     def getLongitud(self):
@@ -82,10 +73,8 @@ class Lista:
 
     def ultimoNodo(self):
         nodo = self.nodoInicial
-
         while nodo.getSiguiente() != None:
             nodo = nodo.getSiguiente()
-
         return nodo
 
     # Funcionalidad extra de una pila
