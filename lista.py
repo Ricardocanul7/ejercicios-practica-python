@@ -77,6 +77,12 @@ class Lista:
             nodo = nodo.getSiguiente()
         return nodo
 
+    
+
+class Pila(Lista):
+    def __init__(self):
+        pass
+
     # Funcionalidad extra de una pila
     def pop(self):
         if(self.getLongitud() <= 0):
@@ -107,7 +113,7 @@ def main():
     pruebaPila()
 
 def pruebaPila():
-    pilaEjemplo = Lista()
+    pilaEjemplo = Pila()
     pilaEjemplo.push("Hola")
     pilaEjemplo.push("Mundo!!!")
     pilaEjemplo.push("Me")
